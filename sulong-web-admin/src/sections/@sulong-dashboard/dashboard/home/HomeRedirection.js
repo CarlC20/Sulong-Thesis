@@ -1,7 +1,9 @@
 // import PropTypes from 'prop-types';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import { Typography, Card, CardContent, Stack, Button } from '@mui/material';
+
 import Image from '../../../../components/Image';
 import { Request, Reservation, Report } from '../../../../assets';
 
@@ -48,7 +50,7 @@ export default function HomeRedirection() {
               {/* placeholder of number of request */} 3 new Requests & Inquiries
             </Typography>
             <Image src={Request} atl="RequestImage" sx={{ width: 100, height: 100, objectFit: 'cover' }} />
-            <Button variant="contained" sx={{ mt: 2 }}>
+            <Button href={'/dashboard/requests-&-inquiries/request-&-inquiry'} variant="contained" sx={{ mt: 2 }}>
               Go to Request & Inquiry
             </Button>
           </Stack>
@@ -57,7 +59,7 @@ export default function HomeRedirection() {
               {/* placeholder of number of request */} 3 new Reservations
             </Typography>
             <Image src={Reservation} atl="RequestImage" sx={{ width: 100, height: 100, objectFit: 'cover' }} />
-            <Button variant="contained" sx={{ mt: 2 }}>
+            <Button href={'/dashboard/reservations/reservation'} variant="contained" sx={{ mt: 2 }}>
               Go to Reservation
             </Button>
           </Stack>
@@ -66,7 +68,7 @@ export default function HomeRedirection() {
               {/* placeholder of number of request */} 3 new Incident Reports
             </Typography>
             <Image src={Report} atl="RequestImage" sx={{ width: 100, height: 100, objectFit: 'cover' }} />
-            <Button variant="contained" sx={{ mt: 2 }}>
+            <Button href={'/dashboard/incident-reports/incident-report'} variant="contained" sx={{ mt: 2 }}>
               Go to Incident Report
             </Button>
           </Stack>

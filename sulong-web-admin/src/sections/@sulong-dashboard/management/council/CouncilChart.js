@@ -28,7 +28,7 @@ CouncilChart.propTypes = {
 };
 
 export default function CouncilChart({ user }) {
-  const { name, cover, position, profilePic, facebookLink, instagramLink, twitterLink, yearbookSaying, tagline } = user;
+  const { name, cover, position, profilePic, facebookLink, instagramLink, twitterLink, yearbookSaying } = user;
 
   return (
     <Card sx={{ textAlign: 'center' }}>
@@ -65,11 +65,11 @@ export default function CouncilChart({ user }) {
         <Image src={cover} alt={cover} ratio="16/9" />
       </Box>
 
-      <Typography variant="subtitle1" sx={{ mt: 6 }}>
+      <Typography variant="h5" sx={{ mt: 6 }}>
         {name}
       </Typography>
 
-      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      <Typography variant="body1" sx={{ color: 'text.secondary' }}>
         {position}
       </Typography>
 
@@ -88,9 +88,6 @@ export default function CouncilChart({ user }) {
           {yearbookSaying}
         </Typography>
         <br />
-        <Typography variant="h6" component="div">
-          {tagline}
-        </Typography>
       </Box>
     </Card>
   );

@@ -22,7 +22,7 @@ export default function RequestInquiry() {
     <Page title="Reservations: Information">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Request & Inquiry Information"
+          heading="Reservations Information"
           links={[
             { name: 'Dashboard', href: PATH_DASHBOARD.dashboard.home },
             { name: 'Reservations', href: PATH_DASHBOARD.reservations.root },

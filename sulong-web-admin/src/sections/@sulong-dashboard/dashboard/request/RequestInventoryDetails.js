@@ -38,7 +38,20 @@ export default function RequestInventoryDetails() {
   return (
     <>
       <Card>
-        <CardHeader title="Requests & Inquiries" sx={{ mb: 3 }} />
+        <CardHeader
+          title="Requests & Inquiries"
+          sx={{ mb: 3 }}
+          action={
+            <Button
+              variant="contained"
+              // component={RouterLink}
+              // to={PATH_DASHBOARD.announcements.addAnnouncement}
+              startIcon={<Iconify icon={'eva:plus-fill'} />}
+            >
+              Add Item
+            </Button>
+          }
+        />
         <Scrollbar>
           <TableContainer sx={{ minWidth: 720 }}>
             <Table>
@@ -90,11 +103,11 @@ export default function RequestInventoryDetails() {
           </RequestPopup>
         </Scrollbar>
         <Divider />
-        <Box sx={{ p: 2, textAlign: 'right' }}>
+        {/* <Box sx={{ p: 2, textAlign: 'right' }}>
           <Button size="small" color="inherit" endIcon={<Iconify icon={'eva:arrow-ios-forward-fill'} />}>
             View All
           </Button>
-        </Box>
+        </Box> */}
       </Card>
     </>
   );

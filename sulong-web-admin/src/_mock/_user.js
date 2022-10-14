@@ -131,17 +131,10 @@ export const _sulongCards = [...Array(5)].map((_, index) => ({
   ],
   yearbookSaying: [
     '"Ano kaya magandang caption sa graduation?"',
-    'Success is not final, failure is not fatal. It is the courage to continue that counts.',
-    'Don’t change to me from the near of you!',
-    '"Ano laban ka?!"',
-    '',
-  ][index],
-  tagline: [
-    '"Ano kaya magandang caption sa graduation?"',
-    '"Be different. Be you."',
-    '"Sabagay sabagay!"',
-    '"Ano laban ka?!"',
-    '',
+    '"Success is not final, failure is not fatal. It is the courage to continue that counts. Be different. Be you."',
+    '"Don’t change to me from the near of you!"',
+    '"If you want it, go for it. Take a risk. Don’t always play it safe or you’ll die wondering."',
+    '""',
   ][index],
 }));
 
