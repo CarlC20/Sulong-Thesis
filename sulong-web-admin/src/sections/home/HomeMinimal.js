@@ -10,9 +10,9 @@ import { MotionInView, varFade } from '../../components/animate';
 const CARDS = [
   {
     icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_design.svg',
-    title: 'UI & UX Design',
+    title: 'User Friendly Design',
     description:
-      'The set is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.',
+      'Our website is built to ensure users that everything on the page is easily understood and used for them to be able to finish their jobs quick and with ease. ',
   },
   {
     icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_code.svg',
@@ -20,7 +20,8 @@ const CARDS = [
     description: 'Easy to customize and extend each component, saving you time and money.',
   },
   {
-    icon: '/logo/logo_single.svg',
+    // icon: '/logo/logo_single.svg',
+    icon: '/favicon/favicon-50x50.png',
     title: 'Branding',
     description: 'Consistent design in colors, fonts ... makes brand recognition easy.',
   },
@@ -96,13 +97,13 @@ export default function HomeMinimal() {
             mb: { xs: 10, md: 25 },
           }}
         >
-          <MotionInView variants={varFade().inUp}>
+          {/* <MotionInView variants={varFade().inUp}>
             <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
               Minimal
             </Typography>
-          </MotionInView>
+          </MotionInView> */}
           <MotionInView variants={varFade().inDown}>
-            <Typography variant="h2">What minimal helps you?</Typography>
+            <Typography variant="h2">What Sulong brings you?</Typography>
           </MotionInView>
         </Box>
 
@@ -136,7 +137,9 @@ export default function HomeMinimal() {
                 <Typography variant="h5" paragraph>
                   {card.title}
                 </Typography>
-                <Typography sx={{ color: isLight ? 'text.secondary' : 'common.white' }}>{card.description}</Typography>
+                <Typography variant="body1" sx={{ color: isLight ? 'text.secondary' : 'common.white' }}>
+                  {card.description}
+                </Typography>
               </CardStyle>
             </MotionInView>
           ))}

@@ -3,11 +3,6 @@ module.exports.handler = async (request, reply) => {
     const { roleService, payload } = request;
     const roleId = request.params.roleId;
 
-    const checkRoleIfExisting = await roleService.getRoleId(payload.role_id);
-
-    if (!checkRoleIfExisting)
-      throw { message: 'Not Found', details: 'Role not found', code: 404 };
-
     const result = await roleService.updateRole(roleId, payload);
 
     if (!result)

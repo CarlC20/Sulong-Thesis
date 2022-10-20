@@ -1,19 +1,20 @@
 module.exports.handler = async (request, reply) => {
   try {
-    const { annnouncementService, payload } = request;
+    const { announcementService, payload } = request;
     const announcementId = request.params.announcementId;
 
     const checkIfAnnouncementExist =
-      await annnouncementService.getAnnouncementId(payload.announcementId);
+      await announcementService.getAnnouncementId(announcementId);
 
-    if (!checkIfAnnouncementExist)
+    if (!checkIfAnnouncementExist) {
       throw {
         message: 'Not Found',
         details: 'Announcement not found',
         code: 404,
       };
+    }
 
-    const result = await annnouncementService.updateAnnouncement(
+    const result = announcementService.updateAnnouncement(
       announcementId,
       payload
     );

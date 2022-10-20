@@ -1,6 +1,7 @@
 /** User Handler */
 const loginHandler = require('../handler/user/login').handler;
 const createUser = require('../handler/user/create-user').handler;
+const createAdmin = require('../handler/user/create-admin').handler;
 const deleteUser = require('../handler/user/delete-user').handler;
 const updateUser = require('../handler/user/update-user').handler;
 const updateUserProfile =
@@ -40,6 +41,24 @@ module.exports = {
       },
     });
 
+    /** Create Admin */
+    server.route({
+      method: 'POST',
+      path: '/api/users/create-admin',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+          {
+            method: validateUserToken,
+            assign: 'u',
+          },
+        ],
+        handler: createAdmin,
+      },
+    });
+
     /** Create User */
     server.route({
       method: 'POST',
@@ -61,7 +80,7 @@ module.exports = {
     /** Delete User */
     server.route({
       method: 'DELETE',
-      path: '/api/users/delete/:userId',
+      path: '/api/users/delete/{userId}',
       options: {
         pre: [
           {
@@ -79,7 +98,7 @@ module.exports = {
     /** Update User */
     server.route({
       method: 'PUT',
-      path: '/api/users/update/:userId',
+      path: '/api/users/update/{userId}',
       options: {
         pre: [
           {
@@ -97,7 +116,7 @@ module.exports = {
     /** Update User Profile */
     server.route({
       method: 'PUT',
-      path: '/api/profile/:userId',
+      path: '/api/profile/{userId}',
       options: {
         pre: [
           {
@@ -130,10 +149,10 @@ module.exports = {
       },
     });
 
-    /** Get Specific User */
+    /** Get Current User */
     server.route({
       method: 'GET',
-      path: '/api/users/:userId',
+      path: '/api/users/{userId}',
       options: {
         pre: [
           {

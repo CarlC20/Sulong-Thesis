@@ -28,13 +28,17 @@ import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
 import Scrollbar from '../../../../components/Scrollbar';
 import MenuPopover from '../../../../components/MenuPopover';
+import { RequestPopup, RequestDescription } from '../request';
 
 // ----------------------------------------------------------------------
 
 export default function ReservationDetails() {
   const theme = useTheme();
-
+  const [openPopup, setOpenPopup] = useState(false);
   const isLight = theme.palette.mode === 'light';
+
+  const description =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec augue nisi. Cras suscipit eget magna id vestibulum. In hac habitasse platea dictumst. Phasellus pretium mauris sit amet lacus tempus, in fermentum mi bibendum. Pellentesque vitae est at augue ultrices luctus. Proin rhoncus elit sed fringilla facilisis. Nullam a fringilla nunc, sed suscipit mauris. Praesent sit amet luctus lacus. Nulla at felis pharetra, hendrerit ex ac, congue quam. Sed eu commodo ipsum, vel imperdiet eros.';
 
   return (
     <>
@@ -50,7 +54,7 @@ export default function ReservationDetails() {
                   <TableCell sx={{ minWidth: 160 }}>E-mail</TableCell>
                   <TableCell sx={{ minWidth: 120 }}>Event</TableCell>
                   <TableCell sx={{ minWidth: 120 }}>Facility</TableCell>
-                  <TableCell sx={{ minWidth: 120 }}>Request Letter</TableCell>
+                  <TableCell sx={{ minWidth: 120 }}>Description</TableCell>
                   <TableCell sx={{ minWidth: 120 }}>Status</TableCell>
                   <TableCell />
                   <TableCell />
@@ -70,7 +74,18 @@ export default function ReservationDetails() {
                     <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
                     <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
                     <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
+                    <TableCell>
+                      <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
+                        <Button
+                          variant="contained"
+                          onClick={() => {
+                            setOpenPopup(true);
+                          }}
+                        >
+                          View Description
+                        </Button>
+                      </Stack>
+                    </TableCell>
 
                     <TableCell>
                       <Label
@@ -80,7 +95,9 @@ export default function ReservationDetails() {
                         {sentenceCase(row.status)}
                       </Label>
                     </TableCell>
-
+                    <RequestPopup title="Request Description" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+                      <RequestDescription description={description} />
+                    </RequestPopup>
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
                         <Button

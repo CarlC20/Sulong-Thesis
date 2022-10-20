@@ -3,9 +3,7 @@ module.exports.handler = async (request, reply) => {
     const { requestService, payload } = request;
     const requestId = request.params.requestId;
 
-    const checkIfRequestExist = await requestService.getRequestId(
-      payload.requestId
-    );
+    const checkIfRequestExist = await requestService.getRequestId(requestId);
 
     if (!checkIfRequestExist)
       throw { message: 'Not Found', details: 'Request not found', code: 404 };

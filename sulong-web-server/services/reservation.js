@@ -1,4 +1,4 @@
-const { Reservation } = require('../models/model-schema');
+const { Reservation, User } = require('../models/model-schema');
 const createReservation = async (payload) => {
   return await Reservation.create(payload);
 };
@@ -20,6 +20,13 @@ const getAllReservation = async () => {
       'facility',
       'description',
       'status',
+    ],
+    include: [
+      {
+        attributes: ['username'],
+        model: User,
+        as: 'user',
+      },
     ],
   });
 };

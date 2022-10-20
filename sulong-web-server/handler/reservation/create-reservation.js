@@ -2,6 +2,10 @@ module.exports.handler = async (request, reply) => {
   try {
     const { reservationService, payload } = request;
 
+    const userId = request.params.userId;
+
+    payload.user_id = userId;
+
     const result = await reservationService.createReservation(payload);
 
     if (!result)

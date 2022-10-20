@@ -1,4 +1,5 @@
 const { Inventory } = require('../models/model-schema');
+
 const createItem = async (payload) => {
   return await Inventory.create(payload);
 };

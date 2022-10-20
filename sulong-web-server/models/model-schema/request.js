@@ -9,10 +9,14 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      user_id: DataTypes.STRING,
       inventory_id: DataTypes.STRING,
       description: DataTypes.STRING,
       type: DataTypes.STRING,
-      status: DataTypes.STRING,
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: 'Pending',
+      },
     },
     {
       timestamps: true,
@@ -20,11 +24,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Requests.associate = (model) => {
-  //     Requests.belongsTo(model.Invetory, {
-  //         as: 'inventory', foreignKey: 'inventory_id'
-  //     })
-  // }
+  Requests.associate = (model) => {
+    Requests.belongsTo(model.User, {
+      as: 'user',
+      foreignKey: 'user_id',
+    });
+
+    // Requests.belongsTo(model.Inventory, {
+    //   as: 'inventory',
+    //   foreignKey: 'inventory_id',
+    // });
+  };
 
   return Requests;
 };

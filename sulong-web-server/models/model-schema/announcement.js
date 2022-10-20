@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      user_id: DataTypes.STRING,
       title: DataTypes.STRING,
       description: DataTypes.STRING,
       content: DataTypes.STRING,
@@ -19,6 +20,13 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   );
+
+  Announcements.associate = (model) => {
+    Announcements.belongsTo(model.User, {
+      as: 'user',
+      foreignKey: 'user_id',
+    });
+  };
 
   return Announcements;
 };

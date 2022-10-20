@@ -1,16 +1,14 @@
 module.exports.handler = async (request, reply) => {
   try {
     const { inventoryService, payload } = request;
-    const inventoryId = request.params.eventId;
+    const inventoryId = request.params.inventoryId;
 
-    const checkIfItemExist = await inventoryService.getItemId(
-      payload.inventoryId
-    );
+    const checkIfItemExist = await inventoryService.getItemId(inventoryId);
 
     if (!checkIfItemExist)
       throw { message: 'Not Found', details: 'Item not found', code: 404 };
 
-    const result = await inventoryService.updateEvent(inventoryId, payload);
+    const result = await inventoryService.updateItem(inventoryId, payload);
 
     if (!result)
       throw {

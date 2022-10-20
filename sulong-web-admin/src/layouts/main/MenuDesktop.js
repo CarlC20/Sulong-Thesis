@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { m } from 'framer-motion';
+
 import { useState, useEffect } from 'react';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 // @mui
@@ -153,20 +153,21 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
               px: 3,
               pt: 5,
               pb: 3,
-              right: 16,
-              m: 'auto',
+              pr: 3,
+              right: 'auto',
+              ml: 150,
               borderRadius: 2,
               maxWidth: (theme) => theme.breakpoints.values.lg,
               boxShadow: (theme) => theme.customShadows.z24,
             },
           }}
         >
-          <Grid container spacing={3}>
+          <Grid container spacing={5}>
             {children.map((list) => {
               const { subheader, items } = list;
 
               return (
-                <Grid key={subheader} item xs={12} md={subheader === 'Dashboard' ? 6 : 2}>
+                <Grid key={subheader} item xs={12} md={subheader === 'Dashboard' ? 10 : 7}>
                   <List disablePadding>
                     <ListSubheader
                       disableSticky
@@ -179,7 +180,7 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
                         typography: 'overline',
                       }}
                     >
-                      <IconBullet type="subheader" /> {subheader}
+                      {subheader}
                     </ListSubheader>
 
                     {items.map((item) => (
@@ -204,23 +205,9 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
                               color: 'primary.main',
                               bgcolor: 'background.neutral',
                             }}
-                          >
-                            <Box
-                              component={m.img}
-                              whileTap="tap"
-                              whileHover="hover"
-                              variants={{
-                                hover: { scale: 1.02 },
-                                tap: { scale: 0.98 },
-                              }}
-                              src="https://minimal-assets-api.vercel.app/assets/illustrations/illustration_dashboard.png"
-                            />
-                          </CardActionArea>
+                          />
                         ) : (
-                          <>
-                            <IconBullet />
-                            {item.title}
-                          </>
+                          <>{item.title}</>
                         )}
                       </ListItemStyle>
                     ))}
@@ -234,21 +221,21 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
     );
   }
 
-  if (title === 'Documentation') {
-    return (
-      <LinkStyle
-        href={path}
-        target="_blank"
-        rel="noopener"
-        sx={{
-          ...(isHome && { color: 'common.white' }),
-          ...(isOffset && { color: 'text.primary' }),
-        }}
-      >
-        {title}
-      </LinkStyle>
-    );
-  }
+  // if (title === 'Documentation') {
+  //   return (
+  //     <LinkStyle
+  //       href={path}
+  //       target="_blank"
+  //       rel="noopener"
+  //       sx={{
+  //         ...(isHome && { color: 'common.white' }),
+  //         ...(isOffset && { color: 'text.primary' }),
+  //       }}
+  //     >
+  //       {title}
+  //     </LinkStyle>
+  //   );
+  // }
 
   return (
     <LinkStyle

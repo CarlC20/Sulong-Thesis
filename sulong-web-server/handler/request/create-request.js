@@ -1,8 +1,11 @@
 module.exports.handler = async (request, reply) => {
   try {
     const { requestService, payload } = request;
+    const userId = request.params.userId;
 
-    const result = await requestService.createRequest(payload);
+    payload.user_id = userId;
+
+    const result = await requestService.createRequest(userId, payload);
 
     if (!result)
       throw { message: 'Something went wrong', details: '', code: 500 };

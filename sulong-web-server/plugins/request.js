@@ -18,7 +18,7 @@ module.exports = {
     /** Create request */
     server.route({
       method: 'POST',
-      path: '/api/requests/create-request',
+      path: '/api/requests/create-request/{userId}',
       options: {
         pre: [
           {
@@ -36,7 +36,7 @@ module.exports = {
     /** Get request */
     server.route({
       method: 'GET',
-      path: '/api/requests/',
+      path: '/api/requests',
       options: {
         pre: [
           {
@@ -54,7 +54,7 @@ module.exports = {
     /** Update request */
     server.route({
       method: 'PUT',
-      path: '/api/requests/update/:requestId',
+      path: '/api/requests/update/{requestId}',
       options: {
         pre: [
           {
@@ -72,7 +72,7 @@ module.exports = {
     /** Delete request */
     server.route({
       method: 'DELETE',
-      path: '/api/requests/delete/:requestId',
+      path: '/api/requests/delete/{requestId}',
       options: {
         pre: [
           {

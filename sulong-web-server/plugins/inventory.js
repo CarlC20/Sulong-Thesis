@@ -36,7 +36,7 @@ module.exports = {
     /** Get item */
     server.route({
       method: 'GET',
-      path: '/api/inventory/items/',
+      path: '/api/inventory/items',
       options: {
         pre: [
           {
@@ -54,7 +54,7 @@ module.exports = {
     /** Update item */
     server.route({
       method: 'PUT',
-      path: '/api/inventory/items/update/:itemId',
+      path: '/api/inventory/update/{inventoryId}',
       options: {
         pre: [
           {
@@ -72,7 +72,7 @@ module.exports = {
     /** Delete item */
     server.route({
       method: 'DELETE',
-      path: '/api/inventory/items/delete/:itemId',
+      path: '/api/inventory/delete/{inventoryId}',
       options: {
         pre: [
           {

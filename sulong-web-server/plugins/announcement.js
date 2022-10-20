@@ -22,7 +22,7 @@ module.exports = {
     /** Create announcement */
     server.route({
       method: 'POST',
-      path: '/api/announcements/create-announcement',
+      path: '/api/announcements/create-announcement/{userId}',
       options: {
         pre: [
           {
@@ -40,7 +40,7 @@ module.exports = {
     /** Get announcement */
     server.route({
       method: 'GET',
-      path: '/api/announcements/',
+      path: '/api/announcements',
       options: {
         pre: [
           {
@@ -58,7 +58,7 @@ module.exports = {
     /** Update announcement */
     server.route({
       method: 'PUT',
-      path: '/api/announcements/update/:announcementId',
+      path: '/api/announcements/update/{announcementId}',
       options: {
         pre: [
           {
@@ -76,7 +76,7 @@ module.exports = {
     /** Delete announcement */
     server.route({
       method: 'DELETE',
-      path: '/api/announcements/delete/:announcementId',
+      path: '/api/announcements/delete/{announcementId}',
       options: {
         pre: [
           {

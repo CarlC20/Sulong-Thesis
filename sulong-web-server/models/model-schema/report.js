@@ -9,15 +9,26 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      user_id: DataTypes.STRING,
       type: DataTypes.STRING,
       description: DataTypes.STRING,
-      status: DataTypes.STRING,
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: 'Pending',
+      },
     },
     {
       timestamps: true,
       paranoid: true,
     }
   );
+
+  Reports.associate = (model) => {
+    Reports.belongsTo(model.User, {
+      as: 'user',
+      foreignKey: 'user_id',
+    });
+  };
 
   return Reports;
 };

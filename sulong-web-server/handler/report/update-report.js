@@ -3,9 +3,7 @@ module.exports.handler = async (request, reply) => {
     const { reportService, payload } = request;
     const reportId = request.params.reportId;
 
-    const chcekIfReportExist = await reportService.getReportId(
-      payload.reportId
-    );
+    const chcekIfReportExist = await reportService.getReportId(reportId);
 
     if (!chcekIfReportExist)
       throw { message: 'Not Found', details: 'Report not found', code: 404 };

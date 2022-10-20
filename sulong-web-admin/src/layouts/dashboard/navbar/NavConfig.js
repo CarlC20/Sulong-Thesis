@@ -105,10 +105,10 @@ const navConfig = [
             title: 'incident report',
             path: PATH_DASHBOARD.incidentReports.incidentReport,
           },
-          {
-            title: 'chat',
-            path: PATH_DASHBOARD.incidentReports.chat,
-          },
+          // {
+          //   title: 'chat',
+          //   path: PATH_DASHBOARD.incidentReports.chat,
+          // },
         ],
       },
     ],

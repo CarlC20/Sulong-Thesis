@@ -1,8 +1,10 @@
+import { Link as RouterLink } from 'react-router-dom';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import {
+  Button,
   Card,
   Table,
   Avatar,
@@ -16,7 +18,7 @@ import {
   TablePagination,
 } from '@mui/material';
 // routes
-import { PATH_DASHBOARD } from '../../routes/paths';
+import { PATH_DASHBOARD, PATH_AUTH } from '../../routes/paths';
 // hooks
 import useSettings from '../../hooks/useSettings';
 // _mock_
@@ -27,6 +29,7 @@ import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
 import SearchNotFound from '../../components/SearchNotFound';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
+import Iconify from '../../components/Iconify';
 // sections
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../../sections/@sulong-dashboard/management/user';
 
@@ -123,6 +126,16 @@ export default function ManagementUserList() {
             { name: 'User', href: PATH_DASHBOARD.user.root },
             { name: 'List' },
           ]}
+          action={
+            <Button
+              variant="contained"
+              component={RouterLink}
+              to={PATH_AUTH.registerUnprotected}
+              startIcon={<Iconify icon={'eva:plus-fill'} />}
+            >
+              Add new admin
+            </Button>
+          }
         />
 
         <Card>

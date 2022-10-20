@@ -1,11 +1,7 @@
 module.exports.handler = async (request, reply) => {
   try {
-    const { userService, roleService, payload, md5 } = request;
-
-    const checkRoleIfExisting = await roleService.getRoleId(payload.role_id);
-
-    if (!checkRoleIfExisting)
-      throw { message: 'Not Found', details: 'Position not found', code: 404 };
+    const { userService, payload, md5 } = request;
+    payload.role_id = 2;
 
     const checkIfUserAlreadyExist = await userService.getIdByUsername(
       payload.username

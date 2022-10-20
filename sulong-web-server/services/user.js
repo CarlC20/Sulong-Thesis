@@ -1,4 +1,4 @@
-const { User } = require('../models/model-schema');
+const { User, Role } = require('../models/model-schema');
 
 /** CHECK-USERNAME-IF-EXISTING*/
 const getIdByUsername = async (username) => {
@@ -36,8 +36,7 @@ const findProfileByID = async (id) => {
 
 /** Update User */
 const updateProfile = async (id, payload) => {
-  return await User.update({
-    payload,
+  return await User.update(payload, {
     where: {
       id: id,
     },
@@ -62,12 +61,20 @@ const getAllUsers = async () => {
       'region',
       'zip_code',
     ],
+    include: [
+      {
+        attributes: ['role_name'],
+        model: Role,
+        as: 'role',
+      },
+    ],
   });
 };
 
 /** Get Specific User */
 const getUserProfile = async (id) => {
   return await User.findOne({
+    required: true,
     attributes: [
       'id',
       'first_name',
@@ -86,16 +93,24 @@ const getUserProfile = async (id) => {
     where: {
       id: id,
     },
+    include: [
+      {
+        attributes: ['role_name'],
+        model: Role,
+        as: 'role',
+      },
+    ],
   });
 };
 
 /** Login */
-const getUserByUsernameAndPassword = async (payload) => {
+const getUserByEmailAndPassword = async (payload) => {
   return await User.findOne({
     attributes: ['id'],
     where: {
-      username: payload.username,
-      password: md5(payload.password),
+      email: payload.email,
+      // password: md5(payload.password),
+      password: payload.password,
     },
   });
 };
@@ -107,6 +122,6 @@ module.exports = {
   getAllUsers,
   getUserProfile,
   findProfileByID,
-  getUserByUsernameAndPassword,
+  getUserByEmailAndPassword,
   updateProfile,
 };

@@ -1,7 +1,7 @@
 // routes
-import { PATH_AUTH, PATH_DOCS, PATH_PAGE } from '../../routes/paths';
+import { PATH_PAGE, PATH_AUTH } from '../../routes/paths';
 // components
-import { PATH_AFTER_LOGIN } from '../../config';
+// import { PATH_AFTER_LOGIN } from '../../config';
 // components
 import Iconify from '../../components/Iconify';
 
@@ -26,13 +26,10 @@ const menuConfig = [
       {
         subheader: 'Other',
         items: [
-          { title: 'About us', path: PATH_PAGE.about },
-          { title: 'Contact us', path: PATH_PAGE.contact },
-          { title: 'FAQs', path: PATH_PAGE.faqs },
-          { title: 'Pricing', path: PATH_PAGE.pricing },
-          { title: 'Payment', path: PATH_PAGE.payment },
           { title: 'Maintenance', path: PATH_PAGE.maintenance },
           { title: 'Coming Soon', path: PATH_PAGE.comingSoon },
+          { title: 'Page 404', path: PATH_PAGE.page404 },
+          { title: 'Page 500', path: PATH_PAGE.page500 },
         ],
       },
       {
@@ -44,23 +41,11 @@ const menuConfig = [
           { title: 'Verify code', path: PATH_AUTH.verify },
         ],
       },
-      {
-        subheader: 'Error',
-        items: [
-          { title: 'Page 404', path: PATH_PAGE.page404 },
-          { title: 'Page 500', path: PATH_PAGE.page500 },
-        ],
-      },
-      {
-        subheader: 'Dashboard',
-        items: [{ title: 'Dashboard', path: PATH_AFTER_LOGIN }],
-      },
+      // {
+      //   subheader: 'Dashboard',
+      //   items: [{ title: 'Dashboard', path: PATH_AFTER_LOGIN }],
+      // },
     ],
-  },
-  {
-    title: 'Documentation',
-    icon: <Iconify icon={'eva:book-open-fill'} {...ICON_SIZE} />,
-    path: PATH_DOCS,
   },
 ];
 

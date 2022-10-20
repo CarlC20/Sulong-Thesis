@@ -1,7 +1,15 @@
-const { Announcement } = require('../models/model-schema');
+const { Announcement, User } = require('../models/model-schema');
 
-const createAnnouncement = async (payload) => {
-  return await Announcement.create(payload);
+// const createAnnouncement = async (payload) => {
+//   return await Announcement.create(payload);
+// };
+
+const createAnnouncement = async (id, payload) => {
+  return await Announcement.create(payload, {
+    where: {
+      user_id: id,
+    },
+  });
 };
 
 const deleteAnnouncement = async (id) => {
@@ -15,6 +23,13 @@ const deleteAnnouncement = async (id) => {
 const getAllAnnouncement = async () => {
   return await Announcement.findAll({
     attributes: ['id', 'title', 'description', 'content', 'cover_url'],
+    include: [
+      {
+        attributes: ['username'],
+        model: User,
+        as: 'user',
+      },
+    ],
   });
 };
 

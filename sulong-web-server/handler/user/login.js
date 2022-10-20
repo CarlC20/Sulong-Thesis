@@ -2,7 +2,7 @@ module.exports.handler = async (request, reply) => {
   try {
     const { userService, payload, token, base64encode } = request;
 
-    const user = await userService.getUserByUsernameAndPassword(payload);
+    const user = await userService.getUserByEmailAndPassword(payload);
     if (!user) {
       throw {
         message: 'Operation Failed',
@@ -10,9 +10,9 @@ module.exports.handler = async (request, reply) => {
         code: 401,
       };
     }
-    // const generateToken = token.generateToken(base64encode.encode(user.id));
+    const generateToken = token.generateToken(base64encode.encode(user.id));
 
-    // return reply.response(generateToken).code(200);
+    return reply.response(generateToken).code(200);
   } catch (err) {
     let response = reply.response({
       message: 'Internal Server Error',

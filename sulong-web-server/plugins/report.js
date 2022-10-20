@@ -18,7 +18,7 @@ module.exports = {
     /** Create report */
     server.route({
       method: 'POST',
-      path: '/api/reports/create-report',
+      path: '/api/reports/create-report/{userId}',
       options: {
         pre: [
           {
@@ -36,7 +36,7 @@ module.exports = {
     /** Get report */
     server.route({
       method: 'GET',
-      path: '/api/reports/',
+      path: '/api/reports',
       options: {
         pre: [
           {
@@ -54,7 +54,7 @@ module.exports = {
     /** Update report */
     server.route({
       method: 'PUT',
-      path: '/api/reports/update/:reportId',
+      path: '/api/reports/update/{reportId}',
       options: {
         pre: [
           {
@@ -72,7 +72,7 @@ module.exports = {
     /** Delete report */
     server.route({
       method: 'DELETE',
-      path: '/api/reports/delete/:reportId',
+      path: '/api/reports/delete/{reportId}',
       options: {
         pre: [
           {

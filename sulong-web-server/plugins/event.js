@@ -54,7 +54,7 @@ module.exports = {
     /** Update event */
     server.route({
       method: 'PUT',
-      path: '/api/events/update/:eventsId',
+      path: '/api/events/update/{eventId}',
       options: {
         pre: [
           {
@@ -72,7 +72,7 @@ module.exports = {
     /** Delete event */
     server.route({
       method: 'DELETE',
-      path: '/api/events/delete/:eventsId',
+      path: '/api/events/delete/{eventId}',
       options: {
         pre: [
           {

@@ -21,8 +21,15 @@ export { default as JeraldPic } from './jerald_profile.jpg';
 export { default as GabPic } from './gab_profile.png';
 export { default as MaychaPic } from './maycha_profile.png';
 export { default as JoelPic } from './joel_profile.png';
-export { default as MainPageHeader } from './main-page-header.jpg';
+
+export { default as MainPage } from './main-page.jpg';
 
 export { default as Request } from './request.png';
 export { default as Reservation } from './reservation.png';
 export { default as Report } from './report.png';
+
+export { default as Chrome } from './chrome.png';
+export { default as Edge } from './edge.png';
+export { default as Firefox } from './firefox.png';
+export { default as Opera } from './opera.png';
+export { default as OperaGX } from './operagx.png';

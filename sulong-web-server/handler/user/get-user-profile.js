@@ -1,7 +1,6 @@
 module.exports.handler = async (request, reply) => {
   try {
     const { userService } = request;
-
     const result = await userService.getUserProfile(request.pre.u);
 
     if (!result) throw { message: 'Operation Failed', details: '', code: 400 };

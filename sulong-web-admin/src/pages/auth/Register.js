@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Box, Link, Container, Typography } from '@mui/material';
 // routes
-import { PATH_AUTH } from '../../routes/paths';
+import { PATH_DASHBOARD } from '../../routes/paths';
 // components
 import Page from '../../components/Page';
 // sections
@@ -46,7 +46,7 @@ export default function Register() {
             <Box sx={{ mb: 5, display: 'flex', alignItems: 'center' }}>
               <Box sx={{ flexGrow: 1 }}>
                 <Typography variant="h4" gutterBottom>
-                  Register to Sulong Admin
+                  Register to Sulong as an Admin
                 </Typography>
                 <Typography sx={{ color: 'text.secondary' }}>Start managing your community today.</Typography>
               </Box>
@@ -68,9 +68,9 @@ export default function Register() {
             <br />
 
             <Typography variant="body2" align="center" sx={{ mt: { md: -2 }, color: 'text.secondary' }}>
-              Already have an account?{' '}
-              <Link variant="subtitle2" component={RouterLink} to={PATH_AUTH.login}>
-                Login
+              Want to go back?{' '}
+              <Link variant="subtitle2" component={RouterLink} to={PATH_DASHBOARD.users.userList}>
+                Click here
               </Link>
             </Typography>
           </ContentStyle>

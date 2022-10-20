@@ -5,9 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     'roles',
     {
       id: {
-        type: Sequelize.UUID,
+        type: DataTypes.STRING,
         primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
       },
       role_name: DataTypes.STRING,
     },
@@ -16,6 +15,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   );
-
   return Roles;
 };

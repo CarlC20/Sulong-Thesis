@@ -22,7 +22,7 @@ module.exports = {
     /** Create reservation */
     server.route({
       method: 'POST',
-      path: '/api/reservations/create-reservation',
+      path: '/api/reservations/create-reservation/{userId}',
       options: {
         pre: [
           {
@@ -40,7 +40,7 @@ module.exports = {
     /** Get reservation */
     server.route({
       method: 'GET',
-      path: '/api/reservations/',
+      path: '/api/reservations',
       options: {
         pre: [
           {
@@ -58,7 +58,7 @@ module.exports = {
     /** Update reservation */
     server.route({
       method: 'PUT',
-      path: '/api/reservations/update/:reservationId',
+      path: '/api/reservations/update/{reservationId}',
       options: {
         pre: [
           {
@@ -76,7 +76,7 @@ module.exports = {
     /** Delete reservation */
     server.route({
       method: 'DELETE',
-      path: '/api/reservations/delete/:reservationId',
+      path: '/api/reservations/delete/{reservationId}',
       options: {
         pre: [
           {

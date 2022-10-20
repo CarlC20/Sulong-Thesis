@@ -6,7 +6,6 @@ import useSettings from '../../hooks/useSettings';
 import Page from '../../components/Page';
 import { PATH_DASHBOARD } from '../../routes/paths';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
-import Iconify from '../../components/Iconify';
 // sections
 import { RequestInventoryDetails } from '../../sections/@sulong-dashboard/dashboard/request';
 // ----------------------------------------------------------------------

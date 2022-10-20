@@ -1,8 +1,8 @@
 module.exports.handler = async (request, reply) => {
   try {
-    const { roleService } = request;
+    const { roleService, payload } = request;
 
-    const result = await roleService.createRole();
+    const result = await roleService.createRole(payload);
 
     if (!result)
       throw { message: 'Something went wrong', details: '', code: 500 };

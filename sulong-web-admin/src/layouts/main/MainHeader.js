@@ -9,9 +9,6 @@ import useResponsive from '../../hooks/useResponsive';
 import cssStyles from '../../utils/cssStyles';
 // config
 import { HEADER } from '../../config';
-// components
-import Logo from '../../components/Logo';
-import Label from '../../components/Label';
 //
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
@@ -74,22 +71,12 @@ export default function MainHeader() {
             justifyContent: 'space-between',
           }}
         >
-          <Logo />
-
-          <Label color="info" sx={{ ml: 1 }}>
-            v3.0.0
-          </Label>
           <Box sx={{ flexGrow: 1 }} />
 
           {isDesktop && <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />}
 
-          <Button
-            variant="contained"
-            target="_blank"
-            rel="noopener"
-            href="https://material-ui.com/store/items/minimal-dashboard/"
-          >
-            Purchase Now
+          <Button variant="contained" href="/auth/login">
+            Login now
           </Button>
 
           {!isDesktop && <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={navConfig} />}

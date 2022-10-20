@@ -3,7 +3,7 @@ module.exports.handler = async (request, reply) => {
     const { eventService, payload } = request;
     const eventId = request.params.eventId;
 
-    const checkIfEventExist = await eventService.getEventId(payload.eventId);
+    const checkIfEventExist = await eventService.getEventId(eventId);
 
     if (!checkIfEventExist)
       throw { message: 'Not Found', details: 'Event not found', code: 404 };

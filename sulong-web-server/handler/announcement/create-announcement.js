@@ -1,7 +1,14 @@
 module.exports.handler = async (request, reply) => {
   try {
     const { announcementService, payload } = request;
-    const result = await announcementService.createAnnouncement(payload);
+    const userId = request.params.userId;
+
+    payload.user_id = userId;
+
+    const result = await announcementService.createAnnouncement(
+      userId,
+      payload
+    );
 
     if (!result)
       throw { message: 'Something went wrong', details: '', code: 500 };

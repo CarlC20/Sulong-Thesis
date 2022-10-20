@@ -1,8 +1,8 @@
 const { Role } = require('../models/model-schema');
 
 /** Create Roles */
-const createRole = async () => {
-  return await Role.bulkCreate([{ role_name: 'admin' }, { role_name: 'user' }]);
+const createRole = async (payload) => {
+  return await Role.create(payload);
 };
 
 /** Get All Roles */
@@ -13,11 +13,11 @@ const getRoles = async () => {
 };
 
 /** Get Role ID */
-const getRoleId = async (pid) => {
+const getRoleId = async (id) => {
   return await Role.findOne({
     attributes: ['id'],
     where: {
-      id: pid,
+      id: id,
     },
   });
 };

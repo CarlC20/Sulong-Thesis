@@ -1,6 +1,10 @@
-const { Report } = require('../models/model-schema');
-const createReport = async (payload) => {
-  return await Report.create(payload);
+const { Report, User } = require('../models/model-schema');
+const createReport = async (id, payload) => {
+  return await Report.create(payload, {
+    where: {
+      user_id: id,
+    },
+  });
 };
 
 const deleteReport = async (id) => {
@@ -14,6 +18,13 @@ const deleteReport = async (id) => {
 const getAllReport = async () => {
   return await Report.findAll({
     attributes: ['id', 'type', 'description', 'status'],
+    include: [
+      {
+        attributes: ['username'],
+        model: User,
+        as: 'user',
+      },
+    ],
   });
 };
 

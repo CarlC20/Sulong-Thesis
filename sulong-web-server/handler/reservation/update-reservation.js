@@ -4,7 +4,7 @@ module.exports.handler = async (request, reply) => {
     const reservationId = request.params.reservationId;
 
     const checkIfReservationExist = await reservationService.getReservationId(
-      payload.reservationId
+      reservationId
     );
 
     if (!checkIfReservationExist)

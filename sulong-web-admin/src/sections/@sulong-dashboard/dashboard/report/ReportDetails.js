@@ -28,13 +28,16 @@ import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
 import Scrollbar from '../../../../components/Scrollbar';
 import MenuPopover from '../../../../components/MenuPopover';
-
+import { RequestPopup, RequestDescription } from '../request';
 // ----------------------------------------------------------------------
 
 export default function RequestDetails() {
   const theme = useTheme();
-
+  const [openPopup, setOpenPopup] = useState(false);
   const isLight = theme.palette.mode === 'light';
+
+  const description =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec augue nisi. Cras suscipit eget magna id vestibulum. In hac habitasse platea dictumst. Phasellus pretium mauris sit amet lacus tempus, in fermentum mi bibendum. Pellentesque vitae est at augue ultrices luctus. Proin rhoncus elit sed fringilla facilisis. Nullam a fringilla nunc, sed suscipit mauris. Praesent sit amet luctus lacus. Nulla at felis pharetra, hendrerit ex ac, congue quam. Sed eu commodo ipsum, vel imperdiet eros.';
 
   return (
     <>
@@ -49,8 +52,8 @@ export default function RequestDetails() {
                   <TableCell sx={{ minWidth: 160 }}>Date</TableCell>
                   <TableCell sx={{ minWidth: 160 }}>E-mail</TableCell>
                   <TableCell sx={{ minWidth: 160 }}>Type</TableCell>
-                  <TableCell sx={{ minWidth: 240 }}>Location</TableCell>
-                  <TableCell sx={{ minWidth: 280 }}>Description</TableCell>
+
+                  <TableCell sx={{ minWidth: 220 }}>Description</TableCell>
                   <TableCell sx={{ minWidth: 140 }}>Status</TableCell>
                   <TableCell />
                   <TableCell />
@@ -69,8 +72,22 @@ export default function RequestDetails() {
                     <TableCell>{format(new Date(row.checkIn), 'dd MMM yyyy')}</TableCell>
                     <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
                     <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
+
+                    <TableCell>
+                      <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
+                        <Button
+                          variant="contained"
+                          onClick={() => {
+                            setOpenPopup(true);
+                          }}
+                        >
+                          View Description
+                        </Button>
+                      </Stack>
+                    </TableCell>
+                    <RequestPopup title="Request Description" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+                      <RequestDescription description={description} />
+                    </RequestPopup>
 
                     <TableCell>
                       <Label

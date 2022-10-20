@@ -25,6 +25,13 @@ const ContentStyle = styled('div')(({ theme }) => ({
   },
 }));
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 // ----------------------------------------------------------------------
 
 export default function HomeAdvertisement() {
@@ -57,7 +64,7 @@ export default function HomeAdvertisement() {
           <MotionInView variants={varFade().inDown} sx={{ color: 'common.white', mb: 5 }}>
             <Typography variant="h2">
               Get started with
-              <br /> minimal kit today
+              <br /> Sulong today
             </Typography>
           </MotionInView>
           <MotionInView variants={varFade().inDown}>
@@ -66,7 +73,7 @@ export default function HomeAdvertisement() {
               variant="contained"
               target="_blank"
               rel="noopener"
-              href="https://material-ui.com/store/items/minimal-dashboard/"
+              onClick={scrollToTop}
               sx={{
                 whiteSpace: 'nowrap',
                 boxShadow: (theme) => theme.customShadows.z8,
@@ -75,7 +82,7 @@ export default function HomeAdvertisement() {
                 '&:hover': { bgcolor: 'grey.300' },
               }}
             >
-              Purchase Now
+              Back to top
             </Button>
           </MotionInView>
         </Box>

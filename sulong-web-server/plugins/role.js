@@ -36,7 +36,7 @@ module.exports = {
     /** Get roles */
     server.route({
       method: 'GET',
-      path: '/api/roles/',
+      path: '/api/roles',
       options: {
         pre: [
           {
@@ -54,7 +54,7 @@ module.exports = {
     /** Update role */
     server.route({
       method: 'PUT',
-      path: '/api/roles/update/:roleId',
+      path: '/api/roles/update/{roleId}',
       options: {
         pre: [
           {
@@ -72,7 +72,7 @@ module.exports = {
     /** Delete role */
     server.route({
       method: 'DELETE',
-      path: '/api/roles/delete/:roleId',
+      path: '/api/roles/delete/{roleId}',
       options: {
         pre: [
           {
