@@ -27,6 +27,15 @@ const getItemId = async (id) => {
   });
 };
 
+const getItemQuantity = async (id) => {
+  return await Inventory.findOne({
+    attributes: ['quantity'],
+    where: {
+      id: id,
+    },
+  });
+};
+
 const updateItem = async (id, payload) => {
   return await Inventory.update(payload, {
     where: {
@@ -41,4 +50,5 @@ module.exports = {
   getAllItems,
   getItemId,
   updateItem,
+  getItemQuantity,
 };

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       user_id: DataTypes.STRING,
       inventory_id: DataTypes.STRING,
+      quantity: DataTypes.INTEGER,
       description: DataTypes.STRING,
       type: DataTypes.STRING,
       status: {
@@ -30,10 +31,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'user_id',
     });
 
-    // Requests.belongsTo(model.Inventory, {
-    //   as: 'inventory',
-    //   foreignKey: 'inventory_id',
-    // });
+    Requests.belongsTo(model.Inventory, {
+      as: 'inventory',
+      foreignKey: 'inventory_id',
+    });
   };
 
   return Requests;

@@ -8,7 +8,33 @@ module.exports.handler = async (request, reply) => {
     if (!checkIfItemExist)
       throw { message: 'Not Found', details: 'Item not found', code: 404 };
 
-    const result = await inventoryService.updateItem(inventoryId, payload);
+    const itemsQuantity = await inventoryService.getItemQuantity(inventoryId);
+
+    if (!itemsQuantity)
+      throw { message: 'Not Found', details: 'Item not found', code: 404 };
+
+    const requestQuantity = payload.quantity;
+
+    if (!requestQuantity)
+      throw {
+        message: 'Not Found',
+        details: 'Request quantity not found',
+        code: 404,
+      };
+
+    if (itemsQuantity < requestQuantity)
+      throw {
+        message: 'Bad Request',
+        details: 'Insuuffficient item quantity',
+        code: 400,
+      };
+
+    const finalQuantity = itemsQuantity.quantity - requestQuantity;
+
+    const result = await inventoryService.updateItem(
+      inventoryId,
+      finalQuantity
+    );
 
     if (!result)
       throw {

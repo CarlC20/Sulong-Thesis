@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: Sequelize.UUIDV4,
       },
       user_id: DataTypes.STRING,
-      event_id: DataTypes.STRING,
+      // event_id: DataTypes.STRING,
       event_type: DataTypes.STRING,
       facility: DataTypes.STRING,
       description: DataTypes.STRING,

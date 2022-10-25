@@ -1,3 +1,4 @@
+const md5 = require('md5');
 const { User, Role } = require('../models/model-schema');
 
 /** CHECK-USERNAME-IF-EXISTING*/
