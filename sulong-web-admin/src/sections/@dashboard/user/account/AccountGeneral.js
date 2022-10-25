@@ -12,9 +12,9 @@ import useAuth from '../../../../hooks/useAuth';
 // utils
 import { fData } from '../../../../utils/formatNumber';
 // _mock
-import { countries } from '../../../../_mock';
+import { countries } from '../../../../_sulong_mock';
 // components
-import { FormProvider, RHFSwitch, RHFSelect, RHFTextField, RHFUploadAvatar } from '../../../../components/hook-form';
+import { FormProvider, RHFSelect, RHFTextField, RHFUploadAvatar } from '../../../../components/hook-form';
 
 // ----------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ export default function AccountGeneral() {
             <RHFUploadAvatar
               name="photoURL"
               accept="image/*"
-              maxSize={3145728}
+              maxSize={51338758}
               onDrop={handleDrop}
               helperText={
                 <Typography
@@ -98,13 +98,15 @@ export default function AccountGeneral() {
                     color: 'text.secondary',
                   }}
                 >
-                  Allowed *.jpeg, *.jpg, *.png, *.gif
-                  <br /> max size of {fData(3145728)}
+                  Edit profile picture
+                  <br />
+                  Allowed *.jpeg, *.jpg, *.png,
+                  <br /> max size of {fData(51338758)}
                 </Typography>
               }
             />
 
-            <RHFSwitch name="isPublic" labelPlacement="start" label="Public Profile" sx={{ mt: 5 }} />
+            {/* <RHFSwitch name="isPublic" labelPlacement="start" label="Public Profile" sx={{ mt: 5 }} /> */}
           </Card>
         </Grid>
 
@@ -140,8 +142,6 @@ export default function AccountGeneral() {
             </Box>
 
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3 }}>
-              <RHFTextField name="about" multiline rows={4} label="About" />
-
               <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
                 Save Changes
               </LoadingButton>

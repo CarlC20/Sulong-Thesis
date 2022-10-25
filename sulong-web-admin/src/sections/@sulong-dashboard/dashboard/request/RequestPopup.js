@@ -9,19 +9,20 @@ RequestPopup.protoTypes = {
 };
 
 export default function RequestPopup(props) {
-  // eslint-disable-next-line
   const { title, children, openPopup, setOpenPopup } = props;
-  const handleClose = () => {
-    setOpenPopup(false);
-  };
 
   return (
     <Dialog maxWidth="md" open={openPopup}>
       <DialogTitle sx={{ display: 'flex' }}>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           {title}
         </Typography>
-        <Button onClick={handleClose} color="error">
+        <Button
+          onClick={() => {
+            setOpenPopup(false);
+          }}
+          color="error"
+        >
           X
         </Button>
       </DialogTitle>

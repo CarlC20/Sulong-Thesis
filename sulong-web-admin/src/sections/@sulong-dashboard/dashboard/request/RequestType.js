@@ -31,19 +31,19 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 14443, 4443, 4142, 4124];
+const CHART_DATA = [32, 65, 22, 19, 27, 65];
 
 export default function RequestType() {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
-    colors: [
-      theme.palette.primary.main,
-      theme.palette.chart.blue[0],
-      theme.palette.chart.violet[0],
-      theme.palette.chart.yellow[0],
-    ],
-    labels: ['Health Certificate', 'Barangay Clearance', 'Barangay ID', 'Business Permit', 'Travel Pass', 'Others'],
+    // colors: [
+    //   theme.palette.primary.main,
+    //   theme.palette.chart.blue[0],
+    //   theme.palette.chart.violet[0],
+    //   theme.palette.chart.yellow[0],
+    // ],
+    labels: ['Barangay Clearance', 'Barangay ID', 'Business Permit', 'Travel Pass', 'Items', 'Others'],
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },

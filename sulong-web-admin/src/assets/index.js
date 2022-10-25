@@ -33,3 +33,5 @@ export { default as Edge } from './edge.png';
 export { default as Firefox } from './firefox.png';
 export { default as Opera } from './opera.png';
 export { default as OperaGX } from './operagx.png';
+
+export { default as ligaPic } from './liga.jpg';

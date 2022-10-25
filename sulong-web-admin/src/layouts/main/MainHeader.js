@@ -1,7 +1,9 @@
-import { useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+
 // @mui
 import { styled, useTheme } from '@mui/material/styles';
 import { Box, Button, AppBar, Toolbar, Container } from '@mui/material';
+import { PATH_AUTH } from '../../routes/paths';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
@@ -75,7 +77,7 @@ export default function MainHeader() {
 
           {isDesktop && <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />}
 
-          <Button variant="contained" href="/auth/login">
+          <Button variant="contained" href={'/auth/login'}>
             Login now
           </Button>
 

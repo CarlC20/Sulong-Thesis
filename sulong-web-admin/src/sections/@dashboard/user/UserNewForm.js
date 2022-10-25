@@ -122,20 +122,20 @@ export default function UserNewForm({ isEdit, currentUser }) {
       <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
           <Card sx={{ py: 10, px: 3 }}>
-            {isEdit && (
+            {/* {isEdit && (
               <Label
                 color={values.status !== 'active' ? 'error' : 'success'}
                 sx={{ textTransform: 'uppercase', position: 'absolute', top: 24, right: 24 }}
               >
                 {values.status}
               </Label>
-            )}
+            )} */}
 
             <Box sx={{ mb: 5 }}>
               <RHFUploadAvatar
                 name="avatarUrl"
                 accept="image/*"
-                maxSize={3145728}
+                maxSize={51338758}
                 onDrop={handleDrop}
                 helperText={
                   <Typography
@@ -149,13 +149,13 @@ export default function UserNewForm({ isEdit, currentUser }) {
                     }}
                   >
                     Allowed *.jpeg, *.jpg, *.png, *.gif
-                    <br /> max size of {fData(3145728)}
+                    <br /> max size of {fData(51338758)}
                   </Typography>
                 }
               />
             </Box>
 
-            {isEdit && (
+            {/* {isEdit && (
               <FormControlLabel
                 labelPlacement="start"
                 control={
@@ -199,7 +199,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
                 </>
               }
               sx={{ mx: 0, width: 1, justifyContent: 'space-between' }}
-            />
+            /> */}
           </Card>
         </Grid>
 
@@ -230,8 +230,8 @@ export default function UserNewForm({ isEdit, currentUser }) {
               <RHFTextField name="city" label="City" />
               <RHFTextField name="address" label="Address" />
               <RHFTextField name="zipCode" label="Zip/Code" />
-              <RHFTextField name="company" label="Company" />
-              <RHFTextField name="role" label="Role" />
+              {/* <RHFTextField name="company" label="Company" /> */}
+              {/* <RHFTextField name="role" label="Role" /> */}
             </Box>
 
             <Stack alignItems="flex-end" sx={{ mt: 3 }}>

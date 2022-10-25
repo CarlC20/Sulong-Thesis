@@ -31,7 +31,7 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443, 1123, 4142];
+const CHART_DATA = [12, 33, 14, 25];
 
 export default function ReservationType() {
   const theme = useTheme();
@@ -43,7 +43,7 @@ export default function ReservationType() {
       theme.palette.chart.violet[0],
       theme.palette.chart.yellow[0],
     ],
-    labels: ['Court', 'Stage', 'Tent', 'Table', 'Chair', 'Others'],
+    labels: ['Birthday', 'Christening', 'Funeral', 'Others'],
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },

@@ -23,6 +23,7 @@ import {
 } from '@mui/material';
 // _mock_
 import { _bookings } from '../../../../_mock';
+import { requests } from '../../../../_sulong_mock';
 //
 import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
@@ -37,9 +38,7 @@ export default function RequestDetails() {
   const theme = useTheme();
   const [openPopup, setOpenPopup] = useState(false);
   const isLight = theme.palette.mode === 'light';
-  // ===================
-  const description =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec augue nisi. Cras suscipit eget magna id vestibulum. In hac habitasse platea dictumst. Phasellus pretium mauris sit amet lacus tempus, in fermentum mi bibendum. Pellentesque vitae est at augue ultrices luctus. Proin rhoncus elit sed fringilla facilisis. Nullam a fringilla nunc, sed suscipit mauris. Praesent sit amet luctus lacus. Nulla at felis pharetra, hendrerit ex ac, congue quam. Sed eu commodo ipsum, vel imperdiet eros.';
+
   // ===================
   return (
     <>
@@ -60,7 +59,7 @@ export default function RequestDetails() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {_bookings.map((row) => (
+                {requests.map((row) => (
                   <TableRow key={row.id}>
                     {/* User */}
                     <TableCell>
@@ -69,24 +68,25 @@ export default function RequestDetails() {
                         <Typography variant="subtitle2">{row.name}</Typography>
                       </Stack>
                     </TableCell>
-
                     {/* Date */}
-                    <TableCell>{format(new Date(row.checkIn), 'dd MMM yyyy')}</TableCell>
+                    <TableCell>{format(new Date(row.date), 'dd MMM yyyy')}</TableCell>
                     {/* E-mail */}
-                    <TableCell>EMAIL</TableCell>
+                    <TableCell>{row.email}</TableCell>
                     {/* Description button for showing description overlay */}
                     <TableCell>
-                      <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
-                        <Button
-                          variant="contained"
-                          onClick={() => {
-                            setOpenPopup(true);
-                          }}
-                        >
-                          View Description
-                        </Button>
-                      </Stack>
+                      <Button
+                        variant="contained"
+                        onClick={() => {
+                          setOpenPopup(true);
+                        }}
+                      >
+                        View Description
+                      </Button>
+                      <RequestPopup title="Request Description" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+                        <RequestDescription description={row.description} />
+                      </RequestPopup>
                     </TableCell>
+
                     {/* Status */}
                     <TableCell>
                       <Label
@@ -96,7 +96,6 @@ export default function RequestDetails() {
                         {sentenceCase(row.status)}
                       </Label>
                     </TableCell>
-
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
                         <Button
@@ -117,7 +116,6 @@ export default function RequestDetails() {
                         </Button>
                       </Stack>
                     </TableCell>
-
                     <TableCell align="right">
                       <MoreMenuButton />
                     </TableCell>
@@ -126,18 +124,15 @@ export default function RequestDetails() {
               </TableBody>
             </Table>
           </TableContainer>
-          <RequestPopup title="Request Description" openPopup={openPopup} setOpenPopup={setOpenPopup}>
-            <RequestDescription description={description} />
-          </RequestPopup>
         </Scrollbar>
 
         <Divider />
 
-        <Box sx={{ p: 2, textAlign: 'right' }}>
+        {/* <Box sx={{ p: 2, textAlign: 'right' }}>
           <Button size="small" color="inherit" endIcon={<Iconify icon={'eva:arrow-ios-forward-fill'} />}>
             View All
           </Button>
-        </Box>
+        </Box> */}
       </Card>
     </>
   );

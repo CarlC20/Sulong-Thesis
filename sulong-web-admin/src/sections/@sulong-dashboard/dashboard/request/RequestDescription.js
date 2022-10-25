@@ -8,9 +8,12 @@ RequestDescription.propTypes = {
 export default function RequestDescription(props) {
   const { description } = props;
 
+  console.log(description);
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      <Typography variant="body1">{description}</Typography>
+    <Box sx={{ maxWidth: 'md', display: 'flex', flexWrap: 'wrap', pt: 2 }}>
+      <Typography component="div" variant="body1">
+        {description}
+      </Typography>
     </Box>
   );
 }

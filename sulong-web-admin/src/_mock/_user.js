@@ -134,7 +134,7 @@ export const _sulongCards = [...Array(5)].map((_, index) => ({
     '"Success is not final, failure is not fatal. It is the courage to continue that counts. Be different. Be you."',
     '"Don’t change to me from the near of you!"',
     '"If you want it, go for it. Take a risk. Don’t always play it safe or you’ll die wondering."',
-    '""',
+    '". . ."',
   ][index],
 }));
 

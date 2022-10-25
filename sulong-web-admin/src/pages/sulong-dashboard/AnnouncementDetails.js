@@ -49,6 +49,26 @@ export default function AnnouncementDetails() {
     getPost();
   }, [getPost]);
 
+  const mockAnnouncements = [
+    {
+      id: 1,
+      title: 'Barangay Liga',
+      description: 'Annual basketball liga',
+      content:
+        'There will be basketball liga on the 2nd week of November on the Barangay court. To join, approach SK Chairman Penelope at the entrance of the court. See you future ballers!',
+      coverUrl: 'http://ligaocity.albay.gov.ph/wp-content/uploads/2017/03/interbrgy.jpg',
+      createdAt: 'October 12',
+    },
+    {
+      id: 2,
+      title: 'Test',
+      description: 'Test Announcement',
+      content: 'This is a test announcement',
+      coverUrl:
+        'https://play-lh.googleusercontent.com/V_P-I-UENK93ahkQgOWel8X8yFxjhOOfMAZjxXrqp311Gm_RBtlDXHLQhwFZN8n4aIQ',
+      createdAt: 'November 1',
+    },
+  ];
   return (
     <Page title="Announcements: Announcement Details">
       <Container maxWidth={themeStretch ? false : 'lg'}>

@@ -22,7 +22,7 @@ import {
   TableContainer,
 } from '@mui/material';
 // _mock_
-import { _bookings } from '../../../../_mock';
+import { reservations } from '../../../../_sulong_mock';
 //
 import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
@@ -49,8 +49,8 @@ export default function ReservationDetails() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ minWidth: 240 }}>User</TableCell>
-                  <TableCell sx={{ minWidth: 160 }}>Date</TableCell>
+                  <TableCell sx={{ minWidth: 220 }}>User</TableCell>
+                  <TableCell sx={{ minWidth: 140 }}>Date</TableCell>
                   <TableCell sx={{ minWidth: 160 }}>E-mail</TableCell>
                   <TableCell sx={{ minWidth: 120 }}>Event</TableCell>
                   <TableCell sx={{ minWidth: 120 }}>Facility</TableCell>
@@ -61,7 +61,7 @@ export default function ReservationDetails() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {_bookings.map((row) => (
+                {reservations.map((row) => (
                   <TableRow key={row.id}>
                     <TableCell>
                       <Stack direction="row" alignItems="center" spacing={2}>
@@ -70,10 +70,10 @@ export default function ReservationDetails() {
                       </Stack>
                     </TableCell>
 
-                    <TableCell>{format(new Date(row.checkIn), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
-                    <TableCell>{format(new Date(row.checkOut), 'dd MMM yyyy')}</TableCell>
+                    <TableCell>{format(new Date(row.date), 'dd MMM yyyy')}</TableCell>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.event}</TableCell>
+                    <TableCell>{row.facility}</TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
                         <Button
@@ -96,7 +96,7 @@ export default function ReservationDetails() {
                       </Label>
                     </TableCell>
                     <RequestPopup title="Request Description" openPopup={openPopup} setOpenPopup={setOpenPopup}>
-                      <RequestDescription description={description} />
+                      <RequestDescription description={row.description} />
                     </RequestPopup>
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>
@@ -131,11 +131,11 @@ export default function ReservationDetails() {
 
         <Divider />
 
-        <Box sx={{ p: 2, textAlign: 'right' }}>
+        {/* <Box sx={{ p: 2, textAlign: 'right' }}>
           <Button size="small" color="inherit" endIcon={<Iconify icon={'eva:arrow-ios-forward-fill'} />}>
             View All
           </Button>
-        </Box>
+        </Box> */}
       </Card>
     </>
   );

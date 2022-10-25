@@ -22,7 +22,7 @@ import { PATH_DASHBOARD, PATH_AUTH } from '../../routes/paths';
 // hooks
 import useSettings from '../../hooks/useSettings';
 // _mock_
-import { _userList } from '../../_mock';
+import { _userList } from '../../_sulong_mock';
 // components
 import Page from '../../components/Page';
 import Label from '../../components/Label';
@@ -37,10 +37,10 @@ import { UserListHead, UserListToolbar, UserMoreMenu } from '../../sections/@sul
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
+  { id: 'email', label: 'Email', alignRight: false },
+  { id: 'address', label: 'Address', alignRight: false },
+  { id: 'country', label: 'Country', alignRight: false },
+  { id: 'city', label: 'City', alignRight: false },
   { id: '' },
 ];
 
@@ -160,7 +160,7 @@ export default function ManagementUserList() {
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                    const { id, name, avatarUrl, email, address, country, city } = row;
                     const isItemSelected = selected.indexOf(name) !== -1;
 
                     return (
@@ -182,23 +182,13 @@ export default function ManagementUserList() {
                           </Typography>
                         </TableCell>
                         {/* Change to username */}
-                        <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{email}</TableCell>
                         {/* Change to email */}
-                        <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{address}</TableCell>
                         {/* Change to gender */}
-                        <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{country}</TableCell>
                         {/* Change to phone numer */}
-                        <TableCell align="left">{role}</TableCell>
-
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        <TableCell align="left">
-                          <Label
-                            variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
-                            color={(status === 'banned' && 'error') || 'success'}
-                          >
-                            {sentenceCase(status)}
-                          </Label>
-                        </TableCell>
+                        <TableCell align="left">{city}</TableCell>
 
                         <TableCell align="right">
                           <UserMoreMenu onDelete={() => handleDeleteUser(id)} userName={name} />

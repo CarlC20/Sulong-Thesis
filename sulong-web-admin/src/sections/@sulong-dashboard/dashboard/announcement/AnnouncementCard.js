@@ -37,15 +37,15 @@ AnnouncementCard.propTypes = {
 
 export default function AnnouncementCard({ post, index }) {
   const isDesktop = useResponsive('up', 'md');
-
   const { cover, title, author, createdAt } = post;
+  // const { coverUrl, title, author, createdAt } = post;
 
   const latestPost = index === 0 || index === 1 || index === 2;
 
   if (isDesktop && latestPost) {
     return (
       <Card>
-        <Avatar
+        {/* <Avatar
           alt={author.name}
           src={author.avatarUrl}
           sx={{
@@ -56,10 +56,11 @@ export default function AnnouncementCard({ post, index }) {
             height: 40,
             position: 'absolute',
           }}
-        />
+        /> */}
         <PostContent title={title} createdAt={createdAt} index={index} />
         <OverlayStyle />
         <Image alt="cover" src={cover} sx={{ height: 360 }} />
+        {/* <Image alt="cover" src={coverUrl} sx={{ height: 360 }} /> */}
       </Card>
     );
   }
@@ -78,7 +79,7 @@ export default function AnnouncementCard({ post, index }) {
             color: 'background.paper',
           }}
         />
-        <Avatar
+        {/* <Avatar
           alt={author.name}
           src={author.avatarUrl}
           sx={{
@@ -89,8 +90,9 @@ export default function AnnouncementCard({ post, index }) {
             bottom: -16,
             position: 'absolute',
           }}
-        />
+        /> */}
         <Image alt="cover" src={cover} ratio="4/3" />
+        {/* <Image alt="cover" src={coverUrl} ratio="4/3" /> */}
       </Box>
 
       <PostContent title={title} createdAt={createdAt} />

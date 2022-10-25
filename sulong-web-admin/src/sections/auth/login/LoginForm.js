@@ -33,7 +33,7 @@ export default function LoginForm() {
   const defaultValues = {
     email: 'demo@minimals.cc',
     password: 'demo1234',
-    remember: true,
+    // remember: true,
   };
 
   const methods = useForm({
@@ -51,9 +51,11 @@ export default function LoginForm() {
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
+      console.log(await login);
     } catch (error) {
       console.error(error);
       reset();
+
       if (isMountedRef.current) {
         setError('afterSubmit', error);
       }

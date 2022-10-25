@@ -90,10 +90,10 @@ const navConfig = [
             title: 'reservation',
             path: PATH_DASHBOARD.reservations.reservation,
           },
-          {
-            title: 'calendar',
-            path: PATH_DASHBOARD.reservations.calendar,
-          },
+          // {
+          //   title: 'calendar',
+          //   path: PATH_DASHBOARD.reservations.calendar,
+          // },
         ],
       },
       {

@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 
 // _mock_
-import { _bookings } from '../../../../_mock';
+import { inventory } from '../../../../_sulong_mock';
 //
 import Iconify from '../../../../components/Iconify';
 import Scrollbar from '../../../../components/Scrollbar';
@@ -63,7 +63,7 @@ export default function RequestInventoryDetails() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {_bookings.map((row) => (
+                {inventory.map((row) => (
                   <TableRow key={row.id}>
                     {/* Item */}
                     <TableCell>
@@ -73,7 +73,7 @@ export default function RequestInventoryDetails() {
                     </TableCell>
 
                     {/* Quantity */}
-                    <TableCell>{quantity}</TableCell>
+                    <TableCell>{row.quantity}</TableCell>
 
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="flex-end" sx={{ flexGrow: 1 }}>

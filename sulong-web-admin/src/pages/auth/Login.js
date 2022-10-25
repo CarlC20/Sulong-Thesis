@@ -54,12 +54,12 @@ export default function Login() {
 
             <Stack>
               <LoginForm />
-              <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+              {/* <Typography variant="body2" align="center" sx={{ mt: 3 }}>
                 Don’t have an account?{' '}
                 <Link variant="subtitle2" component={RouterLink} to={PATH_AUTH.register}>
                   Get started
                 </Link>
-              </Typography>
+              </Typography> */}
             </Stack>
           </ContentStyle>
         </Container>
