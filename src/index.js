@@ -59,15 +59,15 @@ ReactDOM.render(
     <HelmetProvider>
       <ReduxProvider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <SettingsProvider>
-              <CollapseDrawerProvider>
-                <BrowserRouter>
-                  <App />
-                </BrowserRouter>
-              </CollapseDrawerProvider>
-            </SettingsProvider>
-          </LocalizationProvider>
+          {/* <LocalizationProvider dateAdapter={AdapterDateFns}> */}
+          <SettingsProvider>
+            <CollapseDrawerProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </CollapseDrawerProvider>
+          </SettingsProvider>
+          {/* </LocalizationProvider> */}
         </PersistGate>
       </ReduxProvider>
     </HelmetProvider>

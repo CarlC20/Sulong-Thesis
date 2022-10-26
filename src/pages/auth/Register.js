@@ -9,7 +9,7 @@ import Page from '../../components/Page';
 // sections
 import { RegisterForm } from '../../sections/auth/register';
 
-import BackgroundImage from '../../assets/background_image.jpg';
+import { AuthPage } from '../../assets';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -34,7 +34,7 @@ export default function Register() {
     <Page
       title="Register"
       sx={{
-        backgroundImage: `url(${BackgroundImage})`,
+        backgroundImage: `url(${AuthPage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100%',

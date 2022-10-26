@@ -9,7 +9,7 @@ import Page from '../../components/Page';
 // sections
 import { LoginForm } from '../../sections/auth/login';
 
-import BackgroundImage from '../../assets/background_image.jpg';
+import { AuthPage } from '../../assets';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -34,7 +34,7 @@ export default function Login() {
     <Page
       title="Login"
       sx={{
-        backgroundImage: `url(${BackgroundImage})`,
+        backgroundImage: `url(${AuthPage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100%',
