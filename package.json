@@ -110,6 +110,10 @@
     "worker-loader": "^3.0.8",
     "yup": "^0.32.11"
   },
+  "overrides": {
+    "@react-pdf/font": "2.2.1",
+    "@react-pdf/pdfkit": "2.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
