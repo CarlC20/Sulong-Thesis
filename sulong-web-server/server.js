@@ -10,13 +10,13 @@ const inventoryPlugin = require('./plugins/inventory');
 const reportPlugin = require('./plugins/report');
 const requestPlugin = require('./plugins/request');
 const reservationPlugin = require('./plugins/reservation');
+
 const init = async () => {
   const server = Hapi.server({
-    host: 'localhost',
-    port: 5000,
+    host: '0.0.0.0',
+    port: process.env.PORT || 5000,
   });
 
-  // await server.register([ userPlugin, positionPlugin,departmentPlugin ])
   await server.register([
     userPlugin,
     rolePlugin,

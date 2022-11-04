@@ -22,7 +22,8 @@ export { default as GabPic } from './gab_profile.png';
 export { default as MaychaPic } from './maycha_profile.png';
 export { default as JoelPic } from './joel_profile.png';
 
-export { default as MainPage } from './main-page.jpg';
+export { default as AuthPage } from './main-page.jpg';
+export { default as MainPage } from './background_image.jpg';
 
 export { default as Request } from './request.png';
 export { default as Reservation } from './reservation.png';

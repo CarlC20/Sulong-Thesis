@@ -152,7 +152,7 @@ module.exports = {
     /** Get Current User */
     server.route({
       method: 'GET',
-      path: '/api/users/{userId}',
+      path: '/api/users/myProfile',
       options: {
         pre: [
           {

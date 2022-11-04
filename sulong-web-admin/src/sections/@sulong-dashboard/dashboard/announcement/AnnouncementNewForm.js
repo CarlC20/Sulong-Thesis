@@ -15,6 +15,7 @@ import { PATH_DASHBOARD } from '../../../../routes/paths';
 import { RHFEditor, FormProvider, RHFTextField, RHFUploadSingleFile } from '../../../../components/hook-form';
 //
 import AnnouncementPreview from './AnnouncementPreview';
+import { AddAnnouncement } from '../../../../pages/auth/announcement/announcement';
 
 // ----------------------------------------------------------------------
 
@@ -44,17 +45,15 @@ export default function AnnouncementNewForm() {
   const NewBlogSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
     description: Yup.string().required('Description is required'),
-    content: Yup.string().min(1000).required('Content is required'),
-    cover: Yup.mixed().required('Cover is required'),
+    content: Yup.string().min(10).required('Content is required'),
+    // cover: Yup.mixed().required('Cover is required'),
   });
 
   const defaultValues = {
     title: '',
     description: '',
     content: '',
-    cover: null,
-    publish: true,
-    comments: true,
+    // cover: null,
   };
 
   const methods = useForm({
@@ -72,10 +71,25 @@ export default function AnnouncementNewForm() {
 
   const values = watch();
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
+    const payload = {};
+    payload.title = data.title;
+    payload.description = data.description;
+    payload.content = data.content
+      .replace('<p>', '')
+      .replace('</p>', '')
+      .replace('<d>', '')
+      .replace('</d>', '')
+      .replace('<span>', '')
+      .replace('</span>', '');
+
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
+
+      await AddAnnouncement(payload);
+
       reset();
+
       handleClosePreview();
       enqueueSnackbar('Announcement added successfully!');
       navigate(PATH_DASHBOARD.announcements.announcement);

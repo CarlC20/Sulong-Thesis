@@ -155,7 +155,7 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
               pb: 3,
               pr: 3,
               right: 'auto',
-              ml: 150,
+              ml: '65%',
               borderRadius: 2,
               maxWidth: (theme) => theme.breakpoints.values.lg,
               boxShadow: (theme) => theme.customShadows.z24,

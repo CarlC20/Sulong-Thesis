@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router-dom';
 import { useState } from 'react';
 // @mui
 import {
@@ -16,6 +17,9 @@ import {
   Typography,
   TableContainer,
 } from '@mui/material';
+
+// routes
+import { PATH_DASHBOARD } from '../../../../routes/paths';
 
 // _mock_
 import { inventory } from '../../../../_sulong_mock';
@@ -37,20 +41,7 @@ export default function RequestInventoryDetails() {
   return (
     <>
       <Card>
-        <CardHeader
-          title="Requests & Inquiries"
-          sx={{ mb: 3 }}
-          action={
-            <Button
-              variant="contained"
-              // component={RouterLink}
-              // to={PATH_DASHBOARD.announcements.addAnnouncement}
-              startIcon={<Iconify icon={'eva:plus-fill'} />}
-            >
-              Add Item
-            </Button>
-          }
-        />
+        <CardHeader title="Requests & Inquiries" sx={{ mb: 3 }} />
         <Scrollbar>
           <TableContainer sx={{ minWidth: 720 }}>
             <Table>
