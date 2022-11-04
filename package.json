@@ -9,7 +9,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
-    "lint:fix": "eslint --fix --ext .js,.jsx ./src"
+    "lint:fix": "eslint --fix --ext .js,.jsx ./src",
+    "proxy": "lcp --proxyUrl https://sulong-api.herokuapp.com"
   },
   "eslintConfig": {
     "extends": [

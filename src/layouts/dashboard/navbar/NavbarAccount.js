@@ -31,6 +31,7 @@ NavbarAccount.propTypes = {
 
 export default function NavbarAccount({ isCollapse }) {
   const { user } = useAuth();
+  console.log(user);
 
   return (
     <Link underline="none" color="inherit">

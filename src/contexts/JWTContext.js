@@ -74,7 +74,11 @@ function AuthProvider({ children }) {
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
 
-          const response = await axios.get('/api/account/my-account');
+          const response = await axios.get('/api/users/myProfile', {
+            headers: {
+              'x-api-key': process.env.REACT_APP_API_KEY,
+            },
+          });
           const { user } = response.data;
 
           dispatch({
@@ -109,13 +113,24 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const response = await axios.post('/api/account/login', {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      '/api/login',
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          'x-api-key': process.env.REACT_APP_API_KEY,
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
+
     const { accessToken, user } = response.data;
 
     setSession(accessToken);
+
     dispatch({
       type: 'LOGIN',
       payload: {
@@ -124,13 +139,40 @@ function AuthProvider({ children }) {
     });
   };
 
+  // const login = async (email, password) => {
+  //   const response = await axios.post('/api/account/login', {
+  //     email,
+  //     password,
+  //   });
+
+  //   const { accessToken, user } = response.data;
+
+  //   setSession(accessToken);
+
+  //   dispatch({
+  //     type: 'LOGIN',
+  //     payload: {
+  //       user,
+  //     },
+  //   });
+  // };
+
   const register = async (email, password, firstName, lastName) => {
-    const response = await axios.post('/api/account/register', {
-      email,
-      password,
-      firstName,
-      lastName,
-    });
+    const response = await axios.post(
+      '/api/users/create-admin',
+      {
+        email,
+        password,
+        firstName,
+        lastName,
+      },
+      {
+        headers: {
+          'x-api-key': process.env.REACT_APP_API_KEY,
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
     const { accessToken, user } = response.data;
 
     window.localStorage.setItem('accessToken', accessToken);
